@@ -3,12 +3,12 @@ const app = express();
 const path = require('path');
 const port = process.env.PORT || 3000;
 
-// public static path
+// public static path joining src and public file
 const static_path = path.join(__dirname,"../public");
 app.use(express.static(static_path));
 
 
-// routing
+// routing methods
 app.get("/",(req,res) => {
     res.send("welcome to suren ale channel");
 })
