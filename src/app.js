@@ -1,28 +1,38 @@
 const express = require('express');
-const app = express();
 const path = require('path');
+const hbs = require('hbs');
+const app = express();
+// const partials = require('partials');
 const port = process.env.PORT || 3000;
 
 // public static path joining src and public file
 const static_path = path.join(__dirname,"../public");
+const template_path = path.join(__dirname,"../templates/views");
+const partial_path = path.join(__dirname,"../templates/partials");
+
+app.set('view engine', 'hbs');
+app.set('views',template_path);
+hbs.registerPartials(partial_path);
+
 app.use(express.static(static_path));
 
 
 // routing methods
-app.get("/",(req,res) => {
-    res.send("welcome to suren ale channel");
+app.get("/",(req,res) => {  
+    res.render("index");
 })
 
 app.get("/about",(req,res) => {
-    res.send("welcome to about page");
+    res.render("about");
 })
 
 app.get("/weather",(req,res) => {
-    res.send("welcome to weather forcast page");
+    res.render("weather");
 })
 
 app.get("*",(req,res) => {
-    res.send("404 error page oops");
+    res.render("404error");
+    errorMsg:'Oops! Page Not Found'
 })
 
 app.listen(port, function(){ 
