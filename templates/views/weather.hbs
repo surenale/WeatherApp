@@ -27,13 +27,13 @@
                 <div class="tempInformation">
                     <div class="top_layer">
                         <p id="day">Wednesday</p>
-                        <p id="today_date">15 JUN</p>
+                        <p id="today_date"> 15 JUN</p>
 
                     </div>
                     <div class="main_layer">
                         <p id="city_name">Get Output Here</p>
-                        <div class="middle_layer">
-                            <p id="temp"><span>0</span><sup>o</sup>C</p>
+                        <div class="middle_layer data_hide">
+                            <p><span id="temp_real_val">0</span><sup>o</sup>C</p>
                             <p id="temp_status"><i class="fa fa-cloud" aria-hidden="true"></i></p>
 
                         </div>
@@ -47,8 +47,28 @@
     <!-- footer code -->
 
     {{>footer}}
+
+    {{!-- script trigger to main.js file for operation --}}
     <script src="js/main.js"></script>
 
+    {{!-- script for current day --}}
+    <script>
+        const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+        const d = new Date();
+        let day = weekday[d.getDay()];
+        document.getElementById("day").innerHTML = day;
+    </script>
+
+    {{!-- script for current day and month --}}
+    <script>
+        const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+        const date = new Date();
+        let current_month = month[date.getMonth()];
+        let current_day = date.getDate();
+        document.getElementById("today_date").innerHTML = `${current_day} | ${current_month}` ;
+    </script>
 </body>
 
 </html>
