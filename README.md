@@ -8,6 +8,6 @@ How to run :-
 2. Then go to WeatherApp main directory of project using CLI
 3. Open vs code typing code . 
 4. Open vs  code terminal 
-5. Type nodemon src/app.js and then enter
+5. Type nodemon src/app.js and then enter keyword
 6. Then go to your Browser and type localhost:3000
  
